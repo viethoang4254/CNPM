@@ -1,56 +1,42 @@
-/* src/pages/PaymentHistory/Historypayment.scss */
-.lichsu {
-    margin: 50px auto;
-    padding: 70px;
-    max-width: 800px; /* Set a maximum width for the container */
-    background-color: #f9f9f9; /* Light background for contrast */
-    border: 1px solid var(--color-green);
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+.payment-history {
+    margin-top: 100px;
     min-height: 100vh;
-}
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--color-black); /* Adjust color as needed */
-}
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
 
-p {
-    text-align: center;
-    color: #666; /* Gray color for no payment message */
-}
+    p {
+        text-align: center;
+        color: #777;
+    }
 
-table {
-    width: 100%; /* Full width for the table */
-    border-collapse: collapse; /* Collapse borders for a cleaner look */
-    margin-top: 20px; /* Space above the table */
-}
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
 
-thead {
-    background-color: var(--color-green); /* Header background color */
-    color: white; /* Header text color */
-}
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
 
-th,
-td {
-    padding: 12px; /* Padding for table cells */
-    text-align: left; /* Align text to the left */
-    border-bottom: 1px solid #ddd; /* Bottom border for rows */
-}
+        th {
+            background-color: #000000;
+            color: white;
+            font-weight: bold;
+        }
 
-th {
-    font-weight: bold; /* Bold font for table headers */
-}
-
-tbody tr:hover {
-    background-color: rgba(76, 175, 80, 0.1); /* Highlight row on hover */
-}
-
-tbody td {
-    color: var(--color-black); /* Text color for table data */
-}
-
-tbody td:last-child {
-    text-align: center; /* Center align the last column (payment time) */
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    }
 }

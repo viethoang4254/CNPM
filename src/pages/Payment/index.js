@@ -6,9 +6,9 @@ import './Payment.scss';
 function Payment() {
     const { cartItems } = useContext(CartContext);
     const [totalAmount, setTotalAmount] = useState(0);
-    const [cardName, setCardName] = useState('');
-    const [cardNumber, setCardNumber] = useState('');
-    const [expiryDate, setExpiryDate] = useState('');
+    const [recipientName, setRecipientName] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [address, setAddress] = useState('');
     const [cvv, setCvv] = useState('');
     const navigate = useNavigate();
 
@@ -36,9 +36,9 @@ function Payment() {
             user_id: 1, // Giả sử bạn có user_id từ context hoặc state
             total_amount: totalAmount,
             payment_method: 'Credit Card',
-            recipient_name: cardName,
-            phone_number: cardNumber,
-            address: expiryDate,
+            recipient_name: recipientName,
+            phone_number: phoneNumber,
+            address: address,
             cvv,
         };
 
@@ -62,14 +62,17 @@ function Payment() {
                 const savedPayments = JSON.parse(localStorage.getItem('payments')) || [];
                 savedPayments.push({
                     orderId: data.message,
-                    recipientName: cardName,
+                    recipientName: recipientName,
+                    phoneNumber: phoneNumber,
+                    address: address,
                     totalAmount: formatCurrency(totalAmount),
                     paymentTime: paymentTime,
+                    status: 'pending', // Trạng thái ban đầu là 'pending'
                 });
                 localStorage.setItem('payments', JSON.stringify(savedPayments));
 
                 // Chuyển hướng đến trang xác nhận đơn hàng
-                navigate('/order-confirmation', { state: { orderId: data.message, paymentTime } });
+                navigate('/order-confirmation', { state: { orderId: data.message, paymentTime, status: 'pending' } });
             } else {
                 alert('Error saving payment');
             }
@@ -84,37 +87,37 @@ function Payment() {
             <h2>Thông tin thanh toán</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="card-name">Tên người nhận</label>
+                    <label htmlFor="recipient-name">Tên người nhận</label>
                     <input
-                        id="card-name"
+                        id="recipient-name"
                         type="text"
-                        value={cardName}
-                        onChange={(e) => setCardName(e.target.value)}
+                        value={recipientName}
+                        onChange={(e) => setRecipientName(e.target.value)}
                         required
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="card-number">Số điện thoại</label>
+                    <label htmlFor="phone-number">Số điện thoại</label>
                     <input
-                        id="card-number"
+                        id="phone-number"
                         type="text"
-                        value={cardNumber}
-                        onChange={(e) => setCardNumber(e.target.value)}
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
                         required
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="expiry-date">Địa chỉ</label>
+                    <label htmlFor="address">Địa chỉ</label>
                     <input
-                        id="expiry-date"
+                        id="address"
                         type="text"
-                        value={expiryDate}
-                        onChange={(e) => setExpiryDate(e.target.value)}
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
                         required
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="cvv">Phương thức thanh toán</label>
+                    <label htmlFor="cvv">CVV</label>
                     <input id="cvv" type="text" value={cvv} onChange={(e) => setCvv(e.target.value)} required />
                 </div>
                 <div className="form-group">
