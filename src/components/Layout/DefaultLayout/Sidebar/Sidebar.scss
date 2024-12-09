@@ -1,0 +1,40 @@
+.sidebar {
+    width: 250px;
+    height: 700px;
+    padding: 16px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+h3 {
+    color: var(--color-black);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-red);
+}
+.sidebar-section {
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.sidebar-section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sidebar-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-section li {
+    margin-bottom: 8px;
+}
+
+.sidebar-section input {
+    margin-right: 8px;
+}
+
+.sidebar-section label {
+    font-size: 14px;
+}

@@ -1,0 +1,57 @@
+// Introduce.scss
+
+.intro_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro_container {
+    display: flex;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 5% 0;
+}
+
+.intro_left,
+.intro_right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left_intro_img,
+.right_intro_img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.intro_right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px;
+}
+
+.intro_tilte {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+.lorem_intro {
+    margin-top: 10px;
+    flex-grow: 1;
+}
+
+.p_intro {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 16px;
+    text-align: justify;
+}

@@ -1,0 +1,35 @@
+// navbar-admin.scss
+
+.admin-nav {
+    background-color: var(--color-black); // Màu nền cho navbar
+    padding: 10px 20px; // Padding cho navbar
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Đổ bóng cho navbar
+    position: relative; // Để có thể sử dụng các thuộc tính tuyệt đối bên trong
+
+    nav {
+        display: flex; // Sử dụng flexbox để căn chỉnh các phần tử
+        justify-content: space-between; // Căn giữa các phần tử
+        align-items: center; // Căn giữa theo chiều dọc
+
+        ul {
+            list-style: none; // Bỏ dấu chấm cho danh sách
+            display: flex; // Sử dụng flexbox cho danh sách
+            gap: 20px; // Khoảng cách giữa các mục
+
+            li {
+                a {
+                    text-decoration: none; // Bỏ gạch chân cho liên kết
+                    color: var(--color-white); // Màu chữ
+                    font-weight: bold; // Đậm chữ
+                    padding: 10px 15px; // Padding cho liên kết
+                    border-radius: 5px; // Bo góc cho liên kết
+                    transition: background-color 0.3s; // Hiệu ứng chuyển màu nền
+
+                    &:hover {
+                        background-color: var(--color-green-hover); // Màu nền khi hover
+                    }
+                }
+            }
+        }
+    }
+}

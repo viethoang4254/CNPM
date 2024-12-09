@@ -1,0 +1,50 @@
+.products-search {
+    margin-top: 80px;
+
+    h2 {
+        display: flex;
+        font-size: 20px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+}
+.product-list {
+    display: flex;
+    margin: 0 50px;
+    .product-search-card {
+        margin: 30px 20px;
+        height: 230px;
+        width: 230px;
+        transition: transform 0.2s ease;
+        &:hover {
+            transform: scale(1.05);
+        }
+        .product-image-search {
+            width: 230px;
+            height: 230px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .product_right_search {
+            text-align: right;
+            float: right;
+        }
+
+        .product-search-left {
+            text-align: left;
+            float: left;
+        }
+        .product-search-right {
+            float: right;
+            text-align: right;
+        }
+
+        .product-search-price {
+            color: var(--color-red);
+        }
+        .product-search-name {
+            color: var(--color-black);
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.content {
+    min-height: 100vh;
+    flex: 1;
+}
+.slider {
+    margin-top: 60px;
+    padding-top: 35%;
+    background: url('../../asset/slider/jdi.png');
+    background-position: top center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.anh_nen {
+    display: flex; /* Sử dụng Flexbox để căn hai phần tử con ngang hàng */
+    justify-content: space-between; /* Khoảng cách giữa hai bức ảnh */
+    gap: 20px; /* Khoảng cách giữa hai bức ảnh */
+    padding: 20px;
+    margin: 15px 20px;
+}
+
+.anh_nen_1,
+.anh_nen_2 {
+    position: relative;
+    width: 48%; /* Chia đều không gian cho hai bức ảnh */
+    border-radius: 10px;
+    overflow: hidden; /* Để bo tròn góc các hình ảnh */
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+.anh_nen img {
+    width: 100%;
+    height: auto; /* Đảm bảo ảnh giữ đúng tỷ lệ */
+    border-radius: 10px 10px 0 0; /* Bo góc phần trên của ảnh */
+}
+.slider_2 {
+    background: url(../../asset/slider/Bia5.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 450px;
+    margin: 30px 60px;
+}
+.slider_3 {
+    margin: 30px 0;
+    background: url('../../asset/slider/sale.webp');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 450px;
+    text-align: center;
+}
+.title {
+    color: var(--color-white);
+    font-size: 60px;
+    text-align: center;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.button_sub {
+    color: var(--color-white);
+    font-size: 20px;
+    text-decoration: none;
+    line-height: 200px;
+    padding: 10px;
+    background-color: var(--color-black);
+    border-radius: 5px;
+    &:hover {
+        background-color: var(--color-red);
+    }
+}

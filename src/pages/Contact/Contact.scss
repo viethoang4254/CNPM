@@ -1,0 +1,86 @@
+/* Tổng thể container */
+.contact_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: auto;
+}
+
+/* Tổng thể container của form và ảnh */
+.contact_container {
+    display: flex;
+    flex-direction: row; /* Đặt ảnh và form ngang hàng */
+    width: 80%;
+    justify-content: space-between;
+}
+
+/* Phần chứa form đăng ký bên trái */
+.contact_container_info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.contact_left {
+    width: 100%;
+    margin-top: 220px;
+}
+
+.contact_h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact_input {
+    margin-bottom: 15px;
+}
+
+.contact_input label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.contact_input input,
+.contact_input textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.contact_button {
+    margin-top: 10px;
+}
+
+.contact_btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact_btn:hover {
+    background-color: #555;
+}
+
+/* Phần chứa ảnh bên phải */
+.contact_gg_map {
+    flex: 1;
+    margin-left: 20px;
+    margin-top: 300px;
+}
+
+.map-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}

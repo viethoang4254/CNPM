@@ -1,0 +1,149 @@
+.header {
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 0 3px 2px rgba(76, 175, 80, 0.3);
+}
+.logo {
+    width: 120px;
+    height: auto;
+    position: absolute;
+    left: 50px;
+}
+.header_nav_list {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+.header_nav_list li a {
+    color: var(--color-black);
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.header_search {
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    right: 300px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: white;
+}
+.header_search_input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    font-size: 16px;
+    border-radius: 20px 0 0 20px;
+}
+.header_search_icon {
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 5px;
+    color: #333;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.header_right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 50px;
+}
+
+.header_cart {
+    right: 260px;
+    position: absolute; /* Khoảng cách giữa giỏ hàng và các nút */
+}
+
+.header_cart_icon {
+    font-size: 28px;
+    cursor: pointer;
+    position: relative;
+    a {
+        color: var(--color-black);
+    }
+    .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background-color: var(--color-red);
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+}
+.LiaShoppingCartSolid {
+    color: var(--color-black);
+}
+.btn_header {
+    align-items: center;
+    display: flex;
+}
+
+.btn_header_login,
+.btn_header_register {
+    margin-left: 12px; /* Tạo khoảng cách giữa nút Đăng Nhập và Đăng Ký */
+}
+
+.btn_login,
+.btn_register {
+    color: white;
+    background-color: var(--color-black);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    &:hover {
+        cursor: pointer;
+        background-color: var(--color-red);
+    }
+}
+
+.btn_logout {
+    color: var(--color-white);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-black);
+    &:hover {
+        cursor: pointer;
+        background-color: var(--color-red);
+    }
+}
+
+.icon-user {
+    display: flex;
+    margin-right: 45px;
+    font-size: 30px;
+    position: relative;
+    cursor: pointer;
+    .username {
+        font-size: 16px;
+        position: absolute;
+        display: none;
+        bottom: -45px;
+
+        background-color: var(--color-black);
+        padding: 10px;
+        border-radius: 5px;
+        color: var(--color-white);
+    }
+    &:hover .username {
+        display: block; /* Hiện tên người dùng khi hover */
+    }
+}

@@ -1,0 +1,19 @@
+@import 'normalize.css';
+
+:root {
+    --color-green: #53a716;
+    --color-green-hover: #008000;
+    --color-black: black;
+    --color-white: white;
+    --color-red: red;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: Arial, sans-serif;
+}
+body {
+}

@@ -1,0 +1,45 @@
+.product_content {
+    display: flex;
+    width: auto;
+    margin: 80px 0 0 50px;
+    height: 1100px;
+}
+
+.product_content_slide {
+    width: 70%;
+    height: 300px;
+    margin-left: 40px;
+}
+.product_anh1 {
+    width: 110%;
+    height: 300px;
+}
+.content_title {
+    margin: 25px 0 0 20px;
+    font-size: 18px;
+}
+.sanpham {
+    text-align: left;
+    width: 113%;
+}
+.product_page {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+.btn_product {
+    padding: 15px 20px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    margin: 20px 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    &:hover {
+        background-color: var(--color-balck);
+        cursor: pointer;
+    }
+}
+.btn_product.active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}

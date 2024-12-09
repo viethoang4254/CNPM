@@ -1,0 +1,78 @@
+// UserManagement.scss
+
+.user-management {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f4; // Màu nền tổng thể
+}
+
+.user-content {
+    display: flex;
+    margin-top: 50px; // Khoảng cách từ trên xuống
+}
+
+.user-table {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff; // Màu nền cho bảng
+    border-radius: 8px; // Bo góc cho bảng
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Đổ bóng cho bảng
+    margin-left: 20px; // Khoảng cách bên trái
+}
+
+h2 {
+    margin-bottom: 20px; // Khoảng cách dưới tiêu đề
+    color: #333; // Màu chữ tiêu đề
+}
+
+.add-user-form,
+.edit-user-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; // Khoảng cách dưới form
+}
+
+button {
+    padding: 10px; // Padding cho nút
+    background-color: var(--color-black); // Màu nền cho nút
+    color: white; // Màu chữ cho nút
+    border: none; // Không có đường viền
+    border-radius: 4px; // Bo góc cho nút
+    cursor: pointer; // Con trỏ khi hover
+    font-size: 16px; // Kích thước chữ cho nút
+    transition: background-color 0.3s; // Hiệu ứng chuyển màu nền
+
+    &:hover {
+        background-color: var(--color-green-hover); // Màu nền khi hover
+    }
+}
+
+.user-list {
+    width: 100%; // Chiều rộng 100%
+    border-collapse: collapse; // Gộp các đường viền
+}
+
+.user-list th,
+.user-list td {
+    padding: 12px; // Padding cho ô
+    text-align: left; // Căn trái cho văn bản
+    border-bottom: 1px solid #ddd; // Đường viền dưới cho ô
+}
+
+.user-list th {
+    background-color: #f2f2f2; // Màu nền cho tiêu đề bảng
+    color: #333; // Màu chữ cho tiêu đề bảng
+}
+
+.user-list tr:hover {
+    background-color: #f1f1f1; // Màu nền khi hover hàng
+}
+
+.user-list button {
+    background-color: #dc3545; // Màu đỏ cho nút xóa
+}
+
+.user-list button:hover {
+    background-color: #c82333; // Màu đỏ đậm khi hover
+}

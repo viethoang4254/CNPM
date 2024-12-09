@@ -1,0 +1,98 @@
+.payment-wrapper {
+    min-height: 100vh;
+    margin-top: 80px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.payment-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.payment-form {
+    width: 420px;
+    padding: 25px 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.payment-form:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.payment-form-header {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: #fff;
+    border: 1px solid #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.form-group button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #3498db;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form-group button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.form-group button:active {
+    background: #1c5980;
+    transform: translateY(0);
+}
+
+.payment-form-footer {
+    text-align: center;
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-top: 15px;
+}
