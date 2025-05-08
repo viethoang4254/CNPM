@@ -65,7 +65,7 @@ pip install requests beautifulsoup4 pandas schedule
 2. **Chạy script**:
 
    ```bash
-   python crawler.py
+   python BaiTapLon.py
    ```
 
    - Script sẽ bắt đầu thu thập ngay lập tức và in tiến độ lên console.
