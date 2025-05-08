@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+Trình thu thập tin tức VnExpress
+Tổng quan
+Dự án này là một trình thu thập dữ liệu web được viết bằng Python, được thiết kế để thu thập các bài báo từ mục "Kinh doanh Quốc tế" của VnExpress (https://vnexpress.net/kinh-doanh/quoc-te). Trình thu thập sẽ lấy tiêu đề bài báo, tóm tắt, nội dung và hình ảnh, sau đó lưu dữ liệu vào file CSV. Dự án cũng bao gồm chức năng lập lịch để chạy tự động hàng ngày vào lúc 06:00 sáng.
+Tính năng
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Thu thập dữ liệu web: Thu thập dữ liệu từ nhiều trang của mục Kinh doanh Quốc tế trên VnExpress.
+Trích xuất dữ liệu: Lấy tiêu đề, tóm tắt, nội dung đầy đủ và URL hình ảnh của bài báo.
+Lưu trữ dữ liệu: Lưu dữ liệu thu thập được vào file CSV (tech_news_data.csv) với mã hóa UTF-8.
+Lập lịch: Tự động chạy trình thu thập hàng ngày vào lúc 06:00 sáng bằng thư viện schedule.
+Xử lý lỗi: Xử lý các lỗi HTTP, các yếu tố bị thiếu và gián đoạn từ người dùng một cách nhẹ nhàng.
 
-## Available Scripts
+Yêu cầu
+Để chạy trình thu thập, bạn cần Python 3.x và các thư viện sau:
 
-In the project directory, you can run:
+requests: Để gửi yêu cầu HTTP.
+beautifulsoup4: Để phân tích nội dung HTML.
+pandas: Để xử lý và lưu dữ liệu vào file CSV.
+schedule: Để lập lịch chạy hàng ngày.
 
-### `npm start`
+Cài đặt các thư viện cần thiết bằng lệnh:
+pip install requests beautifulsoup4 pandas schedule
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Cấu trúc dự án
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tệp chính: crawler.py (hoặc mã Python được cung cấp) chứa logic thu thập dữ liệu và lập lịch.
+Tệp đầu ra: tech_news_data.csv lưu trữ dữ liệu đã thu thập (mặc định lưu tại E:\TDH\BaiTapLonRPA\).
 
-### `npm test`
+Cách hoạt động
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Quy trình thu thập:
 
-### `npm run build`
+Script gửi yêu cầu HTTP đến mục Kinh doanh Quốc tế của VnExpress, bắt đầu từ trang 1.
+Sử dụng BeautifulSoup để phân tích HTML và lấy liên kết bài báo từ các thẻ <h2 class="title-news">.
+Với mỗi liên kết bài báo, script trích xuất:
+Tiêu đề: Từ thẻ <h1 class="title-detail">.
+Tóm tắt: Từ thẻ <p class="description">.
+Nội dung: Từ tất cả các thẻ <p class="Normal"> trong thẻ <article class="fck_detail">.
+Hình ảnh: Thuộc tính src của thẻ <img> đầu tiên trong nội dung bài báo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Dữ liệu được lưu vào một DataFrame của pandas và ghi vào file CSV sau khi xử lý xong mỗi trang.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Lập lịch:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Thư viện schedule được sử dụng để chạy hàm crawl_vnexpress hàng ngày vào lúc 06:00 sáng.
+Script chạy vô thời hạn, kiểm tra các tác vụ đã lập lịch mỗi giây.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Xử lý lỗi:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Bỏ qua các bài báo có yếu tố bị thiếu hoặc yêu cầu thất bại.
+Dừng thu thập khi không còn bài báo nào hoặc nếu yêu cầu HTTP thất bại.
+Xử lý gián đoạn từ người dùng (ví dụ: Ctrl+C) một cách nhẹ nhàng.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Hướng dẫn sử dụng
 
-### Code Splitting
+Cài đặt:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Đảm bảo tất cả các thư viện cần thiết đã được cài đặt.
+Cập nhật đường dẫn tệp đầu ra trong script nếu cần (mặc định: E:\TDH\BaiTapLonRPA\tech_news_data.csv).
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Chạy script:
+python crawler.py
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Script sẽ bắt đầu thu thập ngay lập tức và in tiến độ lên console.
+Script cũng sẽ lập lịch chạy hàng ngày vào 06:00 sángynu
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Dừng script:
 
-### Deployment
+Nhấn Ctrl+C để dừng chương trình. Chương trình sẽ thoát một cách nhẹ nhàng.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Đầu ra
+
+Tệp CSV: tech_news_data.csv chứa các cột sau:
+title: Tiêu đề bài báo.
+summary: Tóm tắt bài báo.
+content: Nội dung đầy đủ của bài báo.
+image: URL của hình ảnh chính trong bài báo.
+
+
+Tệp này sẽ bị ghi đè bằng dữ liệu mới sau khi mỗi trang được thu thập.
+
+Lưu ý
+
+Đường dẫn tệp: Đảm bảo thư mục đầu ra (E:\TDH\BaiTapLonRPA\) tồn tại và có quyền ghi.
+Tần suất yêu cầu: Script tạm dừng 1 giây giữa các trang để tránh quá tải máy chủ.
+Mã hóa: File CSV sử dụng mã hóa utf-8-sig để hỗ trợ tiếng Việt.
+
+Giải quyết sự cố
+
+Lỗi thiếu thư viện: Cài đặt các thư viện cần thiết bằng lệnh pip install như hướng dẫn ở trên.
+Lỗi truy cập trang web: Kiểm tra kết nối internet hoặc thử lại sau, vì máy chủ VnExpress có thể tạm thời không phản hồi.
+Lỗi đường dẫn tệp: Đảm bảo đường dẫn đến tech_news_data.csv hợp lệ và ổ đĩa có đủ dung lượng.
+
+Giấy phép
+Dự án này được phát triển cho mục đích học tập và nghiên cứu. Hãy đảm bảo tuân thủ các điều khoản sử dụng của VnExpress khi thu thập dữ liệu.
